@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAGForge AI - Document QA System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>🚀 RAGForge AI</h1>
+                <p class="subtitle">Intelligent Document Question & Answer System</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="content-wrapper">
+            <!-- Left Side: Upload & Documents -->
+            <div class="upload-panel">
+                <div class="panel-header">
+                    <h2>📄 Documents</h2>
+                </div>
+
+                <!-- Upload Section -->
+                <div class="upload-box">
+                    <div class="upload-icon">📤</div>
+                    <p class="upload-text">Upload PDF Documents</p>
+                    <p class="upload-hint">(Max 7 documents)</p>
+                    
+                    <div class="file-input-wrapper">
+                        <input type="file" id="fileInput" accept=".pdf">
+                        <button id="uploadBtn" class="btn btn-primary">Upload PDF</button>
+                    </div>
+                </div>
+
+                <!-- Document List -->
+                <div class="documents-section">
+                    <h3>Uploaded Documents</h3>
+                    <div id="documentList" class="document-list">
+                        <p class="empty-state">No documents uploaded yet</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Chat -->
+            <div class="chat-panel">
+                <div class="panel-header">
+                    <h2>💬 Ask Questions</h2>
+                </div>
+
+                <!-- Chat Messages -->
+                <div id="messagesContainer" class="messages-container">
+                    <div class="welcome-message">
+                        <p>👋 Welcome to RAGForge AI!</p>
+                        <p>Upload documents and ask questions about them.</p>
+                    </div>
+                </div>
+
+                <!-- Chat Input -->
+                <div class="chat-input-section">
+                    <div class="input-wrapper">
+                        <input 
+                            type="text" 
+                            id="questionInput" 
+                            placeholder="Ask a question about your documents..."
+                            autocomplete="off"
+                        >
+                        <button id="sendBtn" class="btn btn-send">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>RAGForge AI v1.0 | Backend: http://127.0.0.1:8000</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
