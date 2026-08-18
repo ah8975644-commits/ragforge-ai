@@ -32,7 +32,7 @@ app.add_middleware(
         "http://localhost:3000",
         "http://127.0.0.1:5000",
         "http://127.0.0.1:3000",
-        "https://ragforge-2krjupz0u-ah8975644-commits-projects.vercel.app",
+        "https://ragforge-ai.vercel.app",
     ],
     allow_credentials=False,
     allow_methods=["*"],
