@@ -37,6 +37,11 @@ class VectorDB:
         
         for i, (chunk, embedding) in enumerate(zip(chunks, embeddings)):
             try:
+
+                # DEBUG: Check embedding type and format
+                print(type(embedding))
+                print(str(embedding)[:200])
+
                 self.client.table("documents").insert({
                     "doc_id": doc_id,
                     "filename": filename,
@@ -101,7 +106,7 @@ class VectorDB:
             # Sort by similarity (highest first) and return top N
             top_results = sorted(
                 scored_chunks, 
-                key=lambda x: x['similarity'], 
+                key=lambda x: x['similarity'],
                 reverse=True
             )[:limit]
             
