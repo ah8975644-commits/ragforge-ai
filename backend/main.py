@@ -24,22 +24,20 @@ SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 
 # FastAPI app
 app = FastAPI()
-
-# CORS middleware - FIXED for mobile
+# CORS middleware
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5000",
         "http://localhost:3000",
-        "https://ragforge-d51as1m1m-ah8975644-commits-projects.vercel.app",
         "http://127.0.0.1:5000",
         "http://127.0.0.1:3000",
+        "https://ragforge-2krjupz0u-ah8975644-commits-projects.vercel.app",
     ],
     allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 # Request/Response models
 class ChatRequest(BaseModel):
     question: str
