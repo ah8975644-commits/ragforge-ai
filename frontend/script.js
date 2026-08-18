@@ -1,4 +1,4 @@
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = const API_URL = "https://ragforge-ai-production.up.railway.app";;
 const fileInput = document.getElementById("fileInput");
 const uploadBtn = document.getElementById("uploadBtn");
 const documentList = document.getElementById("documentList");
