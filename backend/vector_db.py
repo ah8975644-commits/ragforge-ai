@@ -7,6 +7,7 @@ import os
 from supabase import create_client, Client
 from typing import List, Dict
 import math
+import json
 
 class VectorDB:
     def __init__(self):
@@ -91,9 +92,19 @@ class VectorDB:
             # Score all chunks
             scored_chunks = []
             for chunk in response.data:
+                # FIX: Convert retrieved embedding to proper float list
+                retrieved_embedding = chunk['embedding']
+                
+                # If Supabase returns embedding as string, parse it
+                if isinstance(retrieved_embedding, str):
+                    retrieved_embedding = json.loads(retrieved_embedding)
+                
+                # Ensure all elements are floats
+                retrieved_embedding = [float(x) for x in retrieved_embedding]
+                
                 similarity_score = cosine_similarity(
                     query_embedding, 
-                    chunk['embedding']
+                    retrieved_embedding
                 )
                 
                 scored_chunks.append({
