@@ -24,20 +24,22 @@ SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 
 # FastAPI app
 app = FastAPI()
-# CORS middleware
+
+# CORS middleware - FIXED with correct Vercel domain
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5000",
         "http://localhost:3000",
+        "https://ragforge-ai.vercel.app",
         "http://127.0.0.1:5000",
         "http://127.0.0.1:3000",
-        "https://ragforge-ai.vercel.app",
     ],
     allow_credentials=False,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "DELETE", "OPTIONS"],
+    allow_headers=["Content-Type", "Authorization"],
 )
+
 # Request/Response models
 class ChatRequest(BaseModel):
     question: str
@@ -228,7 +230,7 @@ INSTRUCTIONS:
             "https://openrouter.ai/api/v1/chat/completions",
             headers={
                 "Authorization": f"Bearer {OPENROUTER_API_KEY}",
-                "HTTP-Referer": "http://localhost:5000",
+                "HTTP-Referer": "https://ragforge-ai.vercel.app",
                 "X-Title": "RAGForge AI"
             },
             json={
